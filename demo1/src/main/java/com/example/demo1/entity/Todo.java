@@ -1,0 +1,55 @@
+package com.example.demo1.entity;
+
+import java.util.Date;
+
+/**
+ * Created by acerpc on 2017/7/20.
+ */
+public class Todo {
+    private int id;
+    private String title;
+    private String content;
+    private Date time;
+    private byte yxbz;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public byte getYxbz() {
+        return yxbz;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
+    public void setYxbz(byte yxbz) {
+        this.yxbz = yxbz;
+    }
+}
