@@ -1,4 +1,4 @@
-package com.example.demo1.entity;
+package com.homework1.demo2.entity;
 
 /**
  * Created by acerpc on 2017/7/19.
