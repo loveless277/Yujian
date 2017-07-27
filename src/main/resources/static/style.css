@@ -1,0 +1,66 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+}
+h1{
+    text-align: center;
+    color: #ccc;
+}
+.wrap{
+    background: #f00;
+}
+.title{
+    background: green;
+    padding-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    padding-left: 10px;
+}
+.content{
+    background: yellow;
+}
+.t1{
+    background: blanchedalmond;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.t2{
+    background: #97f3ff;
+    text-align: center;
+}
+
+.left{
+    background: pink;
+    float: left;
+    position: relative;
+    height: 100%;
+    width: 50%;
+    text-align: center;
+
+}
+.left p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: cornflowerblue;
+}
+
+.right{
+    background: palegreen;
+    float: right;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    position: relative;
+}
+
+.right p{
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    color: coral;
+}

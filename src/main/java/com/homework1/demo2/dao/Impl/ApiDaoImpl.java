@@ -19,13 +19,15 @@ public class ApiDaoImpl implements ApiDao {
     @Override
     public List<Map<String, Object>> getUserMenu(int id) {
         return jdbcTemplate.queryForList("SELECT bqq_user.name,bqq_menu.function FROM bqq_user,bqq_menu,bqq_user_role,bqq_role_menu  " +
-                "WHERE bqq_user_role.rid = bqq_role_menu.rid AND bqq_role_menu.mid = bqq_menu.id AND bqq_user_role.uid=bqq_user.id AND bqq_user_role.uid=?",id);
+                "WHERE bqq_user_role.rid = bqq_role_menu.rid AND bqq_role_menu.mid = bqq_menu.id AND bqq_user_role.uid=bqq_user.id AND bqq_user_role.uid=? ",id);
     }
 
     @Override
     public List<Map<String, Object>> getUserAll(int id) {
-        return jdbcTemplate.queryForList("SELECT bqq_user.name,bqq_role.roletype,bqq_menu.function FROM bqq_user,bqq_menu,bqq_role,bqq_user_role,bqq_role_menu "+
-                 "WHERE bqq_user_role.rid =bqq_role_menu.rid AND bqq_role_menu.mid = bqq_menu.id AND bqq_user_role.uid=bqq_user.id AND bqq_user_role.rid=bqq_role.id AND bqq_user_role.uid=?",id);
+        /*return jdbcTemplate.queryForList("SELECT bqq_user.name,bqq_role.roletype,bqq_menu.function FROM bqq_user,bqq_menu,bqq_role,bqq_user_role,bqq_role_menu "+
+                 "WHERE bqq_user_role.rid =bqq_role_menu.rid AND bqq_role_menu.mid = bqq_menu.id AND bqq_user_role.uid=bqq_user.id AND bqq_user_role.rid=bqq_role.id AND bqq_user_role.uid=? ORDER BY bqq_role.roletype",id);*/
+        return jdbcTemplate.queryForList("SELECT user.id,user.name,role.roletype,menu.function FROM bqq_user user left join ((bqq_user_role ur left join bqq_role role on ur.rid=role.id)left join(bqq_role_menu rm left join bqq_menu menu on rm.mid=menu.id) on ur.rid=rm.rid)\n" +
+                " on user.id=ur.uid WHERE ur.uid=?",id);
     }
 
     @Override
