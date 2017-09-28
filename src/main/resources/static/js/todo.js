@@ -12,6 +12,7 @@ $(function(){
      var li_actnum = 0;
      var $toggleall =$("#toggle-all");
      var $ul = $("#todo-list");
+     var word = 'items left';
 
     //界面加载完毕后获取内容
     $.ajax({
@@ -47,6 +48,11 @@ $(function(){
     //显示未完成事项数量
     function show_li_actnum() {
         $("#todo-count").find("strong").text(li_actnum);
+        if (li_actnum>1) {
+            $("#todo-count").find("span").text(word);
+        }else {
+            $("#todo-count").find("span").text("item left");
+        }
     }
 
     //判定是否显示副本
